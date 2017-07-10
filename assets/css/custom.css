@@ -1,0 +1,57 @@
+.img-bg{
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+	color: #fff;
+	display: table;
+}
+.img-content{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.img-content small{color: #eee;}
+.img-bg > :not(.mask),
+.callout > :not(.mask){
+	position: relative;
+	z-index: 5;
+}
+.callout{
+	position: relative;
+	height: 200px;
+}
+.table-wrapper{
+	display: table;
+	width: 100%;
+	margin: 15px 0;
+}
+.table-wrapper > .callout{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.mask{
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(2, 2, 2, 0.4);
+	z-index: 1;
+}
+
+/* select2 */
+.select2-container .select2-selection--single{height: 35px;}
+
+/* bootstrap media */
+.media-object{
+	width: 100px;
+}
+.media-heading{
+	text-transform: capitalize;
+}
+textarea{
+	min-width: 100%;
+	max-width: 100%;
+}

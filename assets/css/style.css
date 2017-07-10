@@ -1016,6 +1016,7 @@ General Styles - FlexSlider
 }
 
 .flex-direction-nav .flex-next {
+  content: "\f104";
   opacity: 0;
   right: 0;
   cursor: url(../images/next-light.png), e-resize;

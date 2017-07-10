@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <?php $page = 'blog' ?>
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -36,122 +36,48 @@
     
     -->
     <!-- Default stylesheets-->
-    <link href="<?=base_url();?>assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template specific stylesheets-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/animate.css/animate.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/flexslider/flexslider.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
-    <!-- Main stylesheet and color file-->
-    <link href="<?=base_url();?>assets/css/style.css" rel="stylesheet">
-    <link id="color-scheme" href="<?=base_url();?>assets/css/colors/default.css" rel="stylesheet">
+    <?php include 'style.php'; ?>
+
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
       <div class="page-loader">
         <div class="loader">Loading...</div>
       </div>
-      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Titan</a>
-          </div>
-          <div class="collapse navbar-collapse" id="custom-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?=site_url('landing/index');?>">Home</a></li>
-              <li><a href="<?=site_url('landing/profile');?>">Profile</a></li>
-              <li><a href="<?=site_url('landing/gallery');?>">Gallery</a></li>
-              <li><a href="<?=site_url('landing/about');?>">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="main">
+      
+      <!-- navbar -->
+      <?php include 'el-navbar.php'; ?>
+
+      <div class="main home-section">
         <section class="module-small">
           <div class="container">
             <div class="row">
+            <?php if (isset($data))?>
               <div class="col-sm-8">
                 <div class="post">
-                  <div class="post-thumbnail"><img src="<?=base_url();?>assets/images/post-4.jpg" alt="Blog Featured Image"/></div>
+                  <div class="post-thumbnail"><img src="<?=$data->cover?>" alt="Blog Featured Image"/></div>
                   <div class="post-header font-alt">
-                    <h1 class="post-title">Our trip to the Alps</h1>
-                    <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a href="#">Photography, </a><a href="#">Web Design</a>
+                    <h1 class="post-title"><?=$data->judul?></h1>
+                    <div class="post-meta">By&nbsp;<a href="#"><?=$data->author?></a> | <?=date('d M Y', strtotime($data->tanggal))?> | <a href="#"><?=$data->kategori?></a>
                     </div>
                   </div>
                   <div class="post-entry">
-                    <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                    <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
-                    <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </blockquote>
-                    <p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.</p>
-                    <ul>
-                      <li>The European languages are members of the same family.</li>
-                      <li>Their separate existence is a myth.</li>
-                      <li>For science, music, sport, etc, Europe uses the same vocabulary.</li>
-                    </ul>
-                    <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                    <p><?=$data->article?></p>
                   </div>
                 </div>
-                <div class="comments">
-                  <h4 class="comment-title font-alt">There are 3 comments</h4>
-                  <div class="comment clearfix">
-                    <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/ryanbattles/128.jpg" alt="avatar"/></div>
-                    <div class="comment-content clearfix">
-                      <div class="comment-author font-alt"><a href="#">John Doe</a></div>
-                      <div class="comment-body">
-                        <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                      </div>
-                      <div class="comment-meta font-alt">Today, 14:55 - <a href="#">Reply</a>
-                      </div>
+
+                <div class="widget">
+                  <h5 class="widget-title font-alt">About The Author</h5>
+                  <div class="media">
+                    <div class="media-left">
+                      <img class="media-object" style="max-width: 64px; height: auto;" src="<?=$data->photo?>">
                     </div>
-                    <div class="comment clearfix">
-                      <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/draganbabic/128.jpg" alt="avatar"/></div>
-                      <div class="comment-content clearfix">
-                        <div class="comment-author font-alt"><a href="#">Mark Stone</a></div>
-                        <div class="comment-body">
-                          <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                        </div>
-                        <div class="comment-meta font-alt">Today, 15:34 - <a href="#">Reply</a>
-                        </div>
-                      </div>
+                    <div class="media-body">
+                      <h3 class="alt-features-title font-alt"><?=$data->author?></h3>
+                      <?=$data->about?><br>
+                      <a href="">All post by the author</a>
                     </div>
                   </div>
-                  <div class="comment clearfix">
-                    <div class="comment-avatar"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg" alt="avatar"/></div>
-                    <div class="comment-content clearfix">
-                      <div class="comment-author font-alt"><a href="#">Andy</a></div>
-                      <div class="comment-body">
-                        <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                      </div>
-                      <div class="comment-meta font-alt">Today, 14:59 - <a href="#">Reply</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="comment-form">
-                  <h4 class="comment-form-title font-alt">Add your comment</h4>
-                  <form method="post">
-                    <div class="form-group">
-                      <label class="sr-only" for="name">Name</label>
-                      <input class="form-control" id="name" type="text" name="name" placeholder="Name"/>
-                    </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="email">Name</label>
-                      <input class="form-control" id="email" type="text" name="email" placeholder="E-mail"/>
-                    </div>
-                    <div class="form-group">
-                      <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Comment"></textarea>
-                    </div>
-                    <button class="btn btn-round btn-d" type="submit">Post comment</button>
-                  </form>
                 </div>
               </div>
               <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
@@ -166,160 +92,48 @@
                 <div class="widget">
                   <h5 class="widget-title font-alt">Blog Categories</h5>
                   <ul class="icon-list">
-                    <li><a href="#">Photography - 7</a></li>
-                    <li><a href="#">Web Design - 3</a></li>
-                    <li><a href="#">Illustration - 12</a></li>
-                    <li><a href="#">Marketing - 1</a></li>
-                    <li><a href="#">Wordpress - 16</a></li>
+                    <?php 
+                      foreach ($jmlKtg as $row) {
+                    ?>
+                    <li><a href="#"><?=$row['kategori']?> - <?=$row['jumlah']?></a></li>
+                    <?php
+                      } 
+                    ?>
                   </ul>
                 </div>
                 <div class="widget">
                   <h5 class="widget-title font-alt">Popular Posts</h5>
                   <ul class="widget-posts">
+                    <?php
+                      foreach ($popular as $row) {
+                    ?>
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image" onclick="loadPost(<?=$row['id']?>);" style="cursor: pointer; width: 64px; height: 64px; background: url('<?=$row['cover']?>') center center; background-size: cover;"></div>
                       <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                        <div class="widget-posts-meta">23 january</div>
+                        <div class="widget-posts-title"><a href="<?=site_url('c_frontend/blog_single/').$row['id'];?>"><?=$row['judul']?></a></div>
+                        <div class="widget-posts-meta"><?=date('d M Y', strtotime($row['tanggal']))?></div>
                       </div>
                     </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                        <div class="widget-posts-meta">15 February</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-3.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Eco bag Mockup</a></div>
-                        <div class="widget-posts-meta">21 February</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-4.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Bottle Mockup</a></div>
-                        <div class="widget-posts-meta">2 March</div>
-                      </div>
-                    </li>
+                    <?php
+                      }
+                    ?>
                   </ul>
                 </div>
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Tag</h5>
-                  <div class="tags font-serif"><a href="#" rel="tag">Blog</a><a href="#" rel="tag">Photo</a><a href="#" rel="tag">Video</a><a href="#" rel="tag">Image</a><a href="#" rel="tag">Minimal</a><a href="#" rel="tag">Post</a><a href="#" rel="tag">Theme</a><a href="#" rel="tag">Ideas</a><a href="#" rel="tag">Tags</a><a href="#" rel="tag">Bootstrap</a><a href="#" rel="tag">Popular</a><a href="#" rel="tag">English</a>
-                  </div>
-                </div>
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Text</h5>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
-                </div>
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Comments</h5>
-                  <ul class="icon-list">
-                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
-                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                  </ul>
-                </div>
+                
               </div>
             </div>
           </div>
         </section>
-        <div class="module-small bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">About Titan</h5>
-                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-                  <p>Email:<a href="#">somecompany@example.com</a></p>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Comments</h5>
-                  <ul class="icon-list">
-                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
-                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Blog Categories</h5>
-                  <ul class="icon-list">
-                    <li><a href="#">Photography - 7</a></li>
-                    <li><a href="#">Web Design - 3</a></li>
-                    <li><a href="#">Illustration - 12</a></li>
-                    <li><a href="#">Marketing - 1</a></li>
-                    <li><a href="#">Wordpress - 16</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Popular Posts</h5>
-                  <ul class="widget-posts">
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                        <div class="widget-posts-meta">23 january</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                        <div class="widget-posts-meta">15 February</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+        
+        <!-- footer -->
+        <?php include 'el-footer.php'; ?>
+        
     </main>
     <!--  
     JavaScripts
     =============================================
     -->
-    <script src="<?=base_url();?>assets/lib/jquery/dist/jquery.js"></script>
-    <script src="<?=base_url();?>assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?=base_url();?>assets/lib/wow/dist/wow.js"></script>
-    <script src="<?=base_url();?>assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
-    <script src="<?=base_url();?>assets/lib/isotope/dist/isotope.pkgd.js"></script>
-    <script src="<?=base_url();?>assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
-    <script src="<?=base_url();?>assets/lib/flexslider/jquery.flexslider.js"></script>
-    <script src="<?=base_url();?>assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="<?=base_url();?>assets/lib/smoothscroll.js"></script>
-    <script src="<?=base_url();?>assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
-    <script src="<?=base_url();?>assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
-    <script src="<?=base_url();?>assets/js/plugins.js"></script>
-    <script src="<?=base_url();?>assets/js/main.js"></script>
+    <?php include 'script.php'; ?>
+    
   </body>
 </html>
