@@ -8,17 +8,10 @@ class c_backend extends CI_Controller {
 		$this->load->model('m_general');
 		$this->load->model('m_gallery');
 		$this->load->model('m_landing');
+		$this->load->model('m_about');
 	}
 
 	function index(){
-		if (isset($_SESSION['username'])) {
-			$this->page_home();	
-		}else{
-			$this->login();
-		}
-	}
-	
-	public function page_home(){
 		if (isset($_SESSION['username'])) {
 			$data['blogCount'] = $this->m_general->count('blogpost');
 			$data['galleryCount'] = $this->m_general->count('gallery');
@@ -28,6 +21,10 @@ class c_backend extends CI_Controller {
 		}else{
 			$this->login();
 		}
+	}
+	
+	public function page_home(){
+		$this->index();
 	}
 	
 	public function page_landing01(){
@@ -117,6 +114,10 @@ class c_backend extends CI_Controller {
 			$data['galleryCount'] = $this->m_general->count('gallery');
 			$data['eventCount'] = $this->m_general->count('landingpage');
 
+			$data['biografi'] = $this->m_about->getData('pemerintahan');
+			$data['about_desa'] = $this->m_about->getData('about');
+			// print_r($data['about']->cover);
+
 			$this->load->view('backend/page-about', $data);
 		}else{
 			$this->login();
@@ -126,9 +127,12 @@ class c_backend extends CI_Controller {
 	public function login(){
 		$this->load->view('backend/page-login');
 	}
-
 	public function daftar(){
 		$this->load->view('backend/page-daftar');
+	}
+
+	public function lock(){
+		$this->load->view('backend/lock');
 	}
 
 }

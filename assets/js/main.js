@@ -248,7 +248,8 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
             gallery: {
                 enabled: true,
                 navigateByImgClick: true,
-                preload: [0,1]
+                preload: [0,1],
+                supportsTransitions: true
             },
             image: {
                 titleSrc: 'title',

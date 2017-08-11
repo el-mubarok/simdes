@@ -36,18 +36,17 @@
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left">
-                <a href="<?=site_url('c_backend/page_profile');?>" class="btn btn-default btn-flat">Profile</a>
-              </div>
-              <div class="pull-right">
-                <a href="<?=site_url('c_auth/logOut');?>" class="btn btn-default btn-flat">Sign out</a>
-              </div>
+              <center>
+                <a title="Profile" href="<?=site_url('c_backend/page_profile');?>" class="btn btn-default btn-flat"><i class="fa fa-user"></i> <!-- Profile --></a>
+                <a title="Lock" href="<?=site_url('c_backend/lock');?>" class="btn btn-default btn-flat"><!-- Lock --> <i class="fa fa-lock"></i></a>
+                <a title="Sign Out" href="<?=site_url('c_auth/logOut');?>" class="btn btn-default btn-flat"><!-- Sign out --> <i class="fa fa-power-off"></i></a>
+              </center>
             </li>
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
         <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          <a href="javascript:void(0);" data-toggle="control-sidebar" title="Skins"><i class="fa fa-tint"></i></a>
         </li>
       </ul>
     </div>

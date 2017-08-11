@@ -14,12 +14,10 @@
           <h5 class="widget-title font-alt">Menu</h5>
           <ul class="icon-list">
             <li><a href="<?=site_url('c_frontend/index');?>">Home</a></li>
-            <li><a href="<?=site_url('c_frontend/profile');?>">Profile</a></li>
             <li><a href="<?=site_url('c_frontend/gallery');?>">Gallery</a></li>
+            <li><a href="<?=site_url('c_frontend/blog_grid');?>">Blog</a></li>
             <li><a href="<?=site_url('c_frontend/about');?>">About</a></li>
-            <li><a href="<?=site_url('c_frontend/blog_grid');?>">Blog Grid</a></li>
-            <li><a href="<?=site_url('c_frontend/blog_single');?>">Blog Single</a></li>
-            <li><a href="<?=site_url('c_backend/page_home');?>">Admin</a></li>
+            <li><a target="_blank" href="<?=site_url('c_backend/page_home');?>">Admin</a></li>
           </ul>
         </div>
       </div>

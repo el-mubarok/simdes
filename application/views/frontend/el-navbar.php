@@ -1,7 +1,7 @@
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">S.I.M Desa</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="<?=site_url('c_frontend/index');?>">S.I.M Desa</a>
     </div>
     <div class="collapse navbar-collapse" id="custom-collapse">
       <?php if(isset($page) && $page === 'blog') { ?>

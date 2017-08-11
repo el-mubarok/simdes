@@ -9,6 +9,7 @@ class c_frontend extends CI_Controller {
 		$this->load->model('m_general');
 		$this->load->model('m_gallery');
 		$this->load->model('m_landing');
+		$this->load->model('m_about');
 
 		$this->load->library('pagination');
 	}
@@ -91,6 +92,10 @@ class c_frontend extends CI_Controller {
 
 		$data['jmlKtg'] = $this->m_blog->countKategori();
 		$data['popularFooter'] = $this->m_blog->getPopularPost(2);
+		$data['banner'] = $this->m_general->getBanner('about');
+
+		$data['biografi'] = $this->m_about->getData('pemerintahan');
+		$data['about_desa'] = $this->m_about->getData('about');
 
 		$this->load->view('frontend/about', $data);
 	}

@@ -1,8 +1,8 @@
 <?php
   // defines page name for navbar active/non-active
   // and give 'active' class for navbar item
-  $pages = array('gallery', 'blog', 'landing1', 'landing2', 'profile', 'home', 'about');
-  $home='home'; $blog='blog'; $landing='landing'; $landing1='landing1'; $landing2='landing2'; $gallery='gallery'; $profile='profile'; $about='about';
+  $pages = array('gallery', 'blog', 'landing1', 'landing2', 'profile', 'home', 'about', 'pengaturan');
+  $home='home'; $blog='blog'; $landing='landing'; $landing1='landing1'; $landing2='landing2'; $gallery='gallery'; $profile='profile'; $about='about'; $setting='pengaturan';
 
   for ($i=0; $i < count($pages); $i++) {
     if ($page == $pages[$i]) {
@@ -11,6 +11,7 @@
       elseif ($pages[$i] == $gallery) {$gallery='active';}
       elseif ($pages[$i] == $profile) {$profile='active';}
       elseif ($pages[$i] == $about) {$about='active';}
+      elseif ($pages[$i] == $setting) {$setting='active';}
       elseif ($pages[$i] == $landing1) {
         $landing='active';
         $landing1='active';
@@ -74,6 +75,11 @@
           <i class="fa fa-user"></i> <span>About Page</span>
         </a>
       </li>
+      <!-- <li class="<?=$setting?>">
+        <a href="<?=site_url('c_backend/page_setting');?>">
+          <i class="fa fa-wrench"></i> <span>Pengaturan</span>
+        </a>
+      </li> -->
     </ul>
   </section>
   <!-- /.sidebar -->

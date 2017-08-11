@@ -5,7 +5,7 @@
 Document Title
 =============================================
 -->
-<title>Desa | <?=$title?></title>
+<title><?=$title?> | Desa</title>
 <!--  
 Favicons
 =============================================

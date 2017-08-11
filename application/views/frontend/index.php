@@ -22,7 +22,7 @@
       <!-- navbar -->
       <?php include 'el-navbar.php'; ?>
 
-      <section class="home-section home-parallax home-fade home-full-height" id="home">
+      <section class="home-section home-fade home-full-height" id="home">
         <div class="hero-slider">
           <ul class="slides">
             <?php 

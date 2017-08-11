@@ -2,7 +2,7 @@
 <html lang="en-US" dir="ltr">
   <head>
     <?php
-      $title = 'Information'; 
+      $title = 'Blog'; 
       include 'el-header.php'; 
     ?>
     <!--  
@@ -51,7 +51,7 @@
                 ?>
                   <div class="col-md-6 col-lg-6">
                     <div class="post">
-                      <div class="post-thumbnail" style="background: #fefefe;"><a href="#"><img style="position: relative; display: block; margin: 0 auto;" src="<?=$row['cover']?>" alt="Blog-post Thumbnail"/></a></div>
+                      <div class="post-thumbnail" style="background: #fefefe;"><a href="<?=site_url('c_frontend/blog_single/').$row['id'];?>"><img style="position: relative; display: block; margin: 0 auto;" src="<?=$row['cover']?>" alt="Blog-post Thumbnail"/></a></div>
                       <div class="post-header font-alt">
                         <h2 class="post-title"><a href="<?=site_url('c_frontend/blog_single/').$row['id'];?>"><?=$row['judul']?></a></h2>
                         <div class="post-meta">By&nbsp;<a href="#"><?=$row['author']?></a>&nbsp;| <?=date('d M Y', strtotime($row['tanggal']))?>

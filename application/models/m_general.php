@@ -29,6 +29,7 @@ class m_general extends CI_Model {
 
 	// pagination function
 	public function pagin($db, $from, $to){
+		$this->db->order_by('tanggal', 'DESC');
 		$query = $this->db->get($db, $to, $from);
 		return $query->result_array();
 	}
@@ -37,9 +38,18 @@ class m_general extends CI_Model {
 		return $query->num_rows();
 	}
 
+	public function insertDb($table, $data){
+		$this->db->insert($table, $data);
+	}
+
 	public function upDb($table, $id, $data){
 		$this->db->where('id', $id);
 		$this->db->update($table, $data);
+	}
+
+	public function getTable($table){
+		$query = $this->db->query('SELECT * FROM '.$table);
+		return $query->result_array();
 	}
 
 }
